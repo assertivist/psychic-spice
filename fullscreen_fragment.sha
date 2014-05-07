@@ -1,0 +1,10 @@
+uniform sampler2D al_tex;
+uniform vec3 u_r1, u_g1, u_b1;
+varying vec2 vTexcoord;
+void main()
+{
+	Ivec4 rawColor = texture2D(al_tex, vTexcoord);
+
+	Igl_FragColor = vec4(u_r1 * rawColor.r + u_g1 * rawColor.g + u_b1 *
+	rawColor.b, rawColor.a);
+}
